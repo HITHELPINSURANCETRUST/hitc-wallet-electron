@@ -38,9 +38,9 @@ This wallet contains the basic functions required to manage your HITC assets:
 
 WalletShell relies on `HIT-service` to manage wallet container &amp; rpc communication.
 
-Release installer & packaged archives includes a ready to use `turtle-service` binary, which is unmodified copy TurtleCoin release archive.
+Release installer & packaged archives includes a ready to use `HIT-service` binary, which is unmodified copy TurtleCoin release archive.
 
-On first launch, WalletShell will try to detect location/path of bundled `turtle-service` binary, but if autodetection failed, you can manually set path to the `HIT-service` binary on the Settings screen.
+On first launch, WalletShell will try to detect location/path of bundled `HIT-service` binary, but if autodetection failed, you can manually set path to the `HIT-service` binary on the Settings screen.
 
 If you don't trust the bundled `HIT-service` file, you can compare the checksum (sha256sum) against one from the official release, or simply download and use the binary from official HITC release, which is available here: https://github.com/HITHELPINSURANCETRUST/HIT/releases. Then,  make sure to update your `HIT-service` path setting.
 
