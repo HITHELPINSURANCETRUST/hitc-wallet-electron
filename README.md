@@ -1,0 +1,101 @@
+## WalletShell - GUI wallet for HITC - Help Insurance Trust Consultant.
+
+![WalletShell Screens](https://i.imgur.com/41Ujq0S.gif "WalletShell Screens")
+
+### Features:
+This wallet contains the basic functions required to manage your HITC assets:
+
+* Wallet creation
+  * Create new wallet
+  * Import from private keys OR mnemonic seed
+* Basic wallet operation
+  * Open an existing  wallet
+  * Display wallet address & balance
+  * Display private keys/seed
+  * Export private keys/seed
+  * Transactions listing/sorting/searching
+  * Display transaction detail
+  * Export incoming, outgoing, or all transactions to csv file.
+  * Incoming Transaction notification
+  * Send HITC to single recipient address, allow to set payment id and custom fee. Provides address lookup from addressbook.
+  * Perform wallet optimization by creating fusion transactions
+  * Provides utility to generate payment id and integrated address
+* Address book
+  * Add/Edit/Delete address entry (label/name, address and payment id)
+  * Listing/sorting/searching existing entries
+  * Allow to store same wallet address with different payment id
+  * Autosave address after sending to new/unknown recipient
+* Misc
+  * Provides setting to set local or public node address
+  * Option to use system tray (on closing/minimizing wallet)
+  * Provides list of public nodes, fetch/updated daily from [hitc-nodes-json](https://github.com/HITHELPINSURANCETRUST/hitc-nodes-json) repo.
+  * Custom node address that is not on the list will be added/remembered for future use
+  * Theme: Dark & Light Mode
+  * [Keyboard shortcuts](docs/shortcut.md)
+
+
+### Notes
+
+WalletShell relies on `HIT-service` to manage wallet container &amp; rpc communication.
+
+Release installer & packaged archives includes a ready to use `turtle-service` binary, which is unmodified copy TurtleCoin release archive.
+
+On first launch, WalletShell will try to detect location/path of bundled `turtle-service` binary, but if autodetection failed, you can manually set path to the `HIT-service` binary on the Settings screen.
+
+If you don't trust the bundled `HIT-service` file, you can compare the checksum (sha256sum) against one from the official release, or simply download and use the binary from official HITC release, which is available here: https://github.com/HITHELPINSURANCETRUST/HIT/releases. Then,  make sure to update your `HIT-service` path setting.
+
+### Download &amp; Run WalletShell
+
+#### Windows:
+1. Download the latest installer here: https://github.com/HITHELPINSURANCETRUST/hitc-wallet-electron/releases
+2. Run the installer (`walletshell-<version>-win-setup.exe`) and follow the installation wizard.
+3. Launch WalletShell via start menu or desktop shortcut.
+
+#### GNU/Linux (AppImage):
+1. Download latest AppImage bundle here: https://github.com/HITHELPINSURANCETRUST/hitc-wallet-electron/releases
+2. Make it executable, either via GUI file manager or command line, e.g. `chmod +x walletshell-<version>-linux.AppImage`
+3. Run/execute the file, double click in file manager, or run via shell/command line.
+
+See: https://docs.appimage.org/user-guide/run-appimages.html
+
+
+### Build
+You need to have `Node.js` and `npm` installed, go to https://nodejs.org and find out how to get it installed on your platform.
+
+Once you have Node+npm installed:
+```
+# first, download wallet-api binary for each platform
+# from HITC official repo
+# https://github.com/HITHELPINSURANCETRUST/HIT/releases
+# extract the HIT-service executable somewhere
+
+# clone the repo
+$ git clone https://github.com/HITHELPINSURANCETRUST/hitc-wallet-electron
+$ cd hitc-wallet-electron
+
+# install dependencies
+$ npm install
+
+# create build+dist directory
+$ mkdir -p ./build && mkdir -p ./dist
+
+# copy/symlink icons from assets, required for packaging
+$ cp ./src/assets/icon.* ./build/
+
+# build GNU/Linux package
+$ mkdir -p ./bin/lin
+$ cp /path/to/linux-version-of/HIT-service ./bin/lin/
+$ npm run dist-lin
+
+# build Windows package
+$ mkdir -p ./bin/win
+$ cp /path/to/win-version-of/HIT-service ./bin/win/
+$ npm run dist-win
+
+
+Resulting packages or installer can be found inside `dist/` directory.
+
+### Porting for other coin
+Please see [this guide](docs/porting.md) if you want to adapt WalletShell to be use for your own TurtleCoin fork.
+
+![WalletShell](docs/walletshell.png)
