@@ -42,7 +42,7 @@ config.remoteNodeListFallback = [
 ];
 
 // your currency name
-config.assetName = 'Help Insurance Trust Consultant';
+config.assetName = 'HITC';
 // your currency ticker
 config.assetTicker = 'HITC';
 // your currency address prefix, for address validation
