@@ -31,14 +31,14 @@ config.walletServiceRpcPort = 8070;
 config.blockExplorerUrl = 'https://hitcex.cryptomine.cx/?hash=[[TX_HASH]]#blockchain_transaction';
 
 // default remote node to connect to, set this to a known reliable node for 'just works' user experience
-config.remoteNodeDefaultHost = '109.237.212.60';
+config.remoteNodeDefaultHost = 'node.hitrust.id';
 
 // remote node list update url, set to null if you don't have one
 config.remoteNodeListUpdateUrl = 'https://github.com/HITHELPINSURANCETRUST/hitc-nodes-json';
 
 // fallback remote node list, in case fetching update failed, fill this with known to works remote nodes
 config.remoteNodeListFallback = [
-  '109.237.212.60:11211',
+  'node.hitrust.id:11211',
 ];
 
 // your currency name
